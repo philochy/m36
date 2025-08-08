@@ -12,7 +12,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm run build'  // 前端构建
+                script {
+                    sh "npm install"
+                    sh "npm run dev:generate"
+
+                    echo "构建完成，输出目录: dist/"
+                }
             }
         }
         stage('Deploy') {
