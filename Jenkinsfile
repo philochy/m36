@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-      nodejs "nodejs-18.15.0" // 这里的名称要与Global Tool Configuration中配置的Node.js名称一致
+      nodejs "node18.15.0" // 这里的名称要与Global Tool Configuration中配置的Node.js名称一致
     }
 
     environment {
