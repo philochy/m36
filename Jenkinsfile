@@ -24,17 +24,13 @@ pipeline {
             steps {
                 script {
                     // 确保目标目录存在（如果不存在则创建）
-                    sh "sudo mkdir -p ${env.DEPLOY_DIR} || true"
+                    sh "mkdir -p ${env.DEPLOY_DIR} || true"
 
                     // 清空目标目录（保留目录结构）
-                    sh "sudo find ${env.DEPLOY_DIR} -mindepth 1 -delete || true"
+                    sh "find ${env.DEPLOY_DIR} -mindepth 1 -delete || true"
 
                     // 复制dist目录所有内容到目标目录
-                    sh "sudo cp -R dist/* ${env.DEPLOY_DIR}/"
-
-                    // 设置正确的文件权限（按需调整）
-                    sh "sudo chown -R www-data:www-data ${env.DEPLOY_DIR}"
-                    sh "sudo chmod -R 755 ${env.DEPLOY_DIR}"
+                    sh "cp -R dist/* ${env.DEPLOY_DIR}/"
 
                     echo "已将构建文件部署到: ${env.DEPLOY_DIR}"
                 }
