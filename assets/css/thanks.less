@@ -1,0 +1,44 @@
+.container-thanks {
+	margin: @page-my 0;
+
+	.thanks-wrap {
+		display: flex;
+		margin: 40px 0;
+
+		& > img {
+			width: 45%;
+		}
+		.media-lg({
+            margin: 20px 0;
+            flex-direction: column;
+            & > img{
+                width: 100%;
+            }
+        });
+
+		&-right {
+			flex: 1;
+			margin-left: 60px;
+			align-self: center;
+
+			.media-lg({
+                width: 100%;
+                margin-left: 0;
+            });
+
+			&__text {
+				margin: 20px 0;
+				color: @text-color-secondary;
+			}
+
+			&__line {
+				height: 2px;
+				background: @border-sixth;
+			}
+		}
+	}
+	.group-btn {
+		margin-top: 30px;
+		.group-btn();
+	}
+}

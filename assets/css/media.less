@@ -1,0 +1,31 @@
+@screen-sm: 640px;
+@screen-md: 768px;
+@screen-lg: 1024px;
+@screen-xl: 1280px;
+@screen-2xl: 1536px;
+
+.media-sm(@rules) {
+	@media (max-width: @screen-sm) {
+		@rules();
+	}
+}
+.media-md(@rules) {
+	@media (max-width: @screen-md) {
+		@rules();
+	}
+}
+.media-lg(@rules) {
+	@media (max-width: @screen-lg) {
+		@rules();
+	}
+}
+.media-xl(@rules) {
+	@media (max-width: @screen-xl) {
+		@rules();
+	}
+}
+.media-2xl(@rules) {
+	@media (max-width: @screen-2xl) {
+		@rules();
+	}
+}
