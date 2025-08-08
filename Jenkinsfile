@@ -39,15 +39,11 @@ pipeline {
     }
 
     post {
-        always {
-            // 归档构建产物
-            archiveArtifacts artifacts: 'dist/**/*', fingerprint: true
-
-            // 记录部署信息
-            sh "echo '部署目录: ${env.DEPLOY_DIR}' > deployment.info"
-            archiveArtifacts artifacts: 'deployment.info', fingerprint: true
-
-            junit 'build/reports/**/*.xml'
+        success {
+            echo '构建和部署成功!'
+        }
+        failure {
+            echo '构建或部署失败，请检查日志!'
         }
     }
 }
