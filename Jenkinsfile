@@ -18,7 +18,7 @@ pipeline {
 
                     // 验证构建产物
                     sh "ls -la dist || true"
-                    sh "echo '构建输出目录大小: $(du -sh dist)'"
+                    sh 'echo "构建输出目录大小: $(du -sh dist)"'
 
                     echo "构建完成，输出目录: dist/"
                 }
