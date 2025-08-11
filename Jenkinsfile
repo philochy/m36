@@ -24,6 +24,28 @@ pipeline {
                 }
             }
         }
+
+        stage('Debug Info') {
+            steps {
+                script {
+                    // 打印关键信息
+                    echo "================================================"
+                    echo "当前用户: ${env.CURRENT_USER}"
+                    echo "工作空间路径: ${env.WORKSPACE_PATH}"
+                    echo "目标部署目录: ${env.DEPLOY_DIR}"
+                    echo "================================================"
+
+                    // 检查目标目录上级是否存在
+                    sh """
+                        echo "检查目录 /www/wwwroot/chenhy 是否存在:"
+                        sudo ls -ld /www/wwwroot/chenhy || true
+                        echo "目录权限: $(sudo stat -c '%A %a %n' /www/wwwroot/chenhy || true)"
+                        echo "目录所有者: $(sudo stat -c '%U:%G' /www/wwwroot/chenhy || true)"
+                    """
+                }
+            }
+        }
+
         stage('Deploy') {
             steps {
                 script {
