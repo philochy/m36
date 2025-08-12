@@ -8,6 +8,7 @@ pipeline {
         // 添加目标目录变量（按需修改路径）
         DEPLOY_DIR   = '/www/wwwroot/chenhy/m36'
 
+
         CURRENT_USER = sh(script: 'whoami', returnStdout: true).trim()
         WORKSPACE_PATH = sh(script: 'pwd', returnStdout: true).trim()
     }
