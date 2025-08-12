@@ -49,7 +49,7 @@ pipeline {
                     sh "sudo mkdir -p ${env.DEPLOY_DIR} || true"
 
                     // 清空目标目录（保留目录结构）
-                    sh "sudo find ${env.DEPLOY_DIR} -mindepth 1 -delete || true"
+                    sh "sudo find ${env.DEPLOY_DIR} -mindepth 1 ! -name '.user.ini' -delete || true"
 
                     // 复制dist目录所有内容到目标目录
                     sh "sudo cp -R dist/* ${env.DEPLOY_DIR}/"
