@@ -55,8 +55,8 @@ pipeline {
                     sh "sudo cp -R dist/* ${env.DEPLOY_DIR}/"
 
                     // 设置正确的文件权限（按需调整）
-                    sh "sudo chown -R www-data:www-data ${env.DEPLOY_DIR}"
-                    sh "sudo chmod -R 755 ${env.DEPLOY_DIR}"
+                    // sh "sudo chown -R www-data:www-data ${env.DEPLOY_DIR}"
+                    // sh "sudo chmod -R 755 ${env.DEPLOY_DIR}"
 
                     echo "已将构建文件部署到: ${env.DEPLOY_DIR}"
                 }
